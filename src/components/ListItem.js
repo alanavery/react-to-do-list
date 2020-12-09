@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React, { Component } from 'react';
 
 class ListItem extends Component {
   render() {
@@ -9,7 +9,5 @@ class ListItem extends Component {
     );
   }
 }
-
-
 
 export default ListItem;
