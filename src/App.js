@@ -23,6 +23,12 @@ class App extends Component {
     this.setState({ toDoItemArray: newArray });
   }
 
+  deleteItem(index) {
+    let newArray = this.state.toDoItemArray;
+    newArray.splice(index, 1);
+    this.setState({ toDoItemArray: newArray });
+  }
+
   clearList(event) {
     console.log('Clearing list!');
     this.setState({ toDoItemArray: [] });
@@ -30,7 +36,13 @@ class App extends Component {
 
   render() {
     let listItems = this.state.toDoItemArray.map((toDo, index) => {
-      return <ListItem doThis={toDo} key={index} />;
+      return (
+        <ListItem
+          doThis={toDo}
+          key={index}
+          deleteItem={() => this.deleteItem(index)}
+        />
+      );
     });
     return (
       <div className="App-header">
